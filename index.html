@@ -1,86 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Message Saver App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #e0f7fa, #e1bee7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: white;
+      padding: 40px 50px;
+      border-radius: 20px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+      width: 100%;
+      max-width: 520px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .container:hover {
+      transform: scale(1.02);
+    }
+
+    .container h1 {
+      color: #2c3e50;
+      font-size: 30px;
+      margin-bottom: 5px;
+    }
+
+    .container h3 {
+      color: #7f8c8d;
+      font-weight: 400;
+      margin-bottom: 25px;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 15px;
+      resize: vertical;
+      outline: none;
+      transition: border 0.2s ease;
+    }
+
+    textarea:focus {
+      border-color: #5c6bc0;
+    }
+
+    button {
+      background: linear-gradient(135deg, #5c6bc0, #3949ab);
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      font-size: 16px;
+      border-radius: 30px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+    }
+
+    button:hover {
+      background: linear-gradient(135deg, #3949ab, #1a237e);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    form + form {
+      margin-top: 10px;
+    }
+  </style>
 </head>
 <body>
-    <style>
-/* General Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-/* Body Styling */
-body {
-  font-family: Arial, sans-serif;
-  background: #f0f4f8;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-/* Container Styling */
-.container {
-  background: white;
-  padding: 30px 40px;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 500px;
-  text-align: center;
-}
-
-/* Heading Styles */
-.container h1 {
-  color: #2c3e50;
-  margin-bottom: 10px;
-}
-
-.container h3 {
-  color: #34495e;
-  margin-bottom: 20px;
-}
-
-/* Textarea Styling */
-textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 16px;
-  resize: vertical;
-}
-
-/* Button Styling */
-button {
-  background-color: #184868;
-  color: white;
-  border: none;
-  padding: 12px 25px;
-  font-size: 16px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: #2980b9;
-}
-</style>
-
-<div class="container">
+  <div class="container">
     <h1>Message Saver App</h1>
     <h3>Enter Your Message</h3>
+
     <form action="/send" method="post">
-    <textarea name="message" cols="30" rows="4" required></textarea><br><br>
-    <button type="submit">Send</button>
+      <textarea name="message" cols="30" rows="4" required></textarea><br>
+      <button type="submit">Send</button>
     </form>
-</div>
-    
+
+    <form action="/messages" method="get">
+      <button type="submit">Show Messages</button>
+    </form>
+  </div>
+
 </body>
 </html>

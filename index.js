@@ -14,6 +14,15 @@ app.post('/send', (req, res) => {
     res.send('Message saved successfully!');
 });
 
+app.get('/messages', (req, res) => {
+    try {
+        const data = fs.readFileSync('message.txt', 'utf8');
+        res.send(`<pre>${data}</pre>`);
+    } catch (err) {
+        res.send('No messages found or error reading file.');
+    }
+});
+
 app.listen(port,()=>{
     console.log(`Server is running on http://localhost:${port}`);
 })
